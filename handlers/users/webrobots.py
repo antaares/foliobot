@@ -4,7 +4,6 @@ from loader import dp, db
 import asyncio
 
 
-
 @dp.message_handler(text="Web-saytlar")
 async def echo_web(message: types.Message):
     base_message = await message.answer("@daho_dasturchi tamonidan yaratilgan saytlar ro'yxati:\n")
@@ -15,7 +14,7 @@ async def echo_web(message: types.Message):
         n = "\n"
         if web[0] == 0:
             n = n*2
-        base_message = await base_message.edit_text(base_text + f"{n}{web[0] + 1} |💠| {web[1]} - {web[2]}")
+        base_message = await base_message.edit_text(base_text + f"{n}{web[0] + 1} |💠| <a href=\"{web[2]}\">{web[1]}</a>")
     await asyncio.sleep(1)
     await base_message.edit_text(base_message.text + "\n\nYurishda davom etamiz!")
 
@@ -37,7 +36,7 @@ async def echo_robots(message: types.Message):
         n = "\n"
         if robot[0] == 0:
             n = n*2
-        base_message = await base_message.edit_text(base_text + f"{n}{robot[0] + 1} |💠| {robot[1]} - {robot[2]}")
+        base_message = await base_message.edit_text(base_text + f"{n}{robot[0] + 1} |💠| <a href=\"{robot[2]}\">{robot[1]}</a>")
     await asyncio.sleep(1)
     await base_message.edit_text(base_message.text + "\n\nYurishda davom etamiz!")
 
